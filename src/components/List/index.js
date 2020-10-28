@@ -5,12 +5,12 @@ import { Item } from './components';
 import { useList } from './hooks';
 
 const List = () => {
-  const { filteredItems } = useList();
+  const { items } = useList();
 
   return (
     <Container>
       <Row>
-        {filteredItems.map((item, index) => (
+        {items.map((item, index) => (
           <Item key={item.name} name={item.name} index={index} />
         ))}
       </Row>
