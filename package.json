@@ -27,6 +27,7 @@
   },
   "homepage": "https://github.com/AntonioErdeljac/js-infinum-pokedex#readme",
   "dependencies": {
+    "axios": "0.21.0",
     "bootstrap": "4.5.3",
     "react": "17.0.1",
     "react-bootstrap": "1.4.0",
