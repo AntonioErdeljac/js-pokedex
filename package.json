@@ -7,6 +7,16 @@
     "start": "parcel public/index.html --open",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "lint-staged": {
+    "src/**/*.js": "eslint"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-push": "npm test"
+    }
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/AntonioErdeljac/js-infinum-pokedex.git"
@@ -25,6 +35,8 @@
     "@babel/core": "7.12.3",
     "@babel/preset-env": "7.12.1",
     "@babel/preset-react": "7.12.1",
+    "@commitlint/cli": "11.0.0",
+    "@commitlint/config-conventional": "11.0.0",
     "babel-core": "6.26.3",
     "babel-eslint": "10.1.0",
     "babel-preset-env": "1.7.0",
@@ -37,6 +49,8 @@
     "eslint-plugin-prettier": "3.1.4",
     "eslint-plugin-react": "7.21.5",
     "eslint-plugin-react-hooks": "4.2.0",
+    "husky": "4.3.0",
+    "lint-staged": "10.5.0",
     "parcel-bundler": "1.12.4",
     "prettier": "2.1.2"
   }
