@@ -1,6 +1,8 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Container, Row, Col, Card } from 'react-bootstrap';
+import { Container, Row } from 'react-bootstrap';
+
+import { Item } from './components';
 
 const List = () => {
   const [data, setData] = useState([]);
@@ -15,23 +17,7 @@ const List = () => {
     <Container>
       <Row>
         {data.map((item, index) => (
-          <Col key={item.name} md={4}>
-            <Card className="mb-4 shadow-sm">
-              <Card.Img
-                className="p-5"
-                variant="top"
-                src={`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${`${
-                  index + 1
-                }`.padStart(3, '0')}.png`}
-              />
-              <hr />
-              <Card.Body>
-                <Card.Title className="text-capitalize font-weight-bold text-center">
-                  {item.name}
-                </Card.Title>
-              </Card.Body>
-            </Card>
-          </Col>
+          <Item key={item.name} name={item.name} index={index} />
         ))}
       </Row>
     </Container>
