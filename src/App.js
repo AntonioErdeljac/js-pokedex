@@ -1,7 +1,12 @@
 import React from 'react';
 
-import { List } from './components';
+import { Header, List } from './components';
 
-const App = () => <List />;
+const App = () => (
+  <>
+    <Header />
+    <List />
+  </>
+);
 
 export default App;

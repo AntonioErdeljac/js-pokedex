@@ -7,7 +7,7 @@ const List = () => {
 
   useEffect(() => {
     axios
-      .get('https://pokeapi.co/api/v2/pokemon?limit=100')
+      .get('https://pokeapi.co/api/v2/pokemon?limit=5')
       .then(({ data: tempData }) => setData(tempData.results));
   }, []);
 
@@ -15,7 +15,7 @@ const List = () => {
     <Container>
       <Row>
         {data.map((item, index) => (
-          <Col md={4}>
+          <Col key={item.name} md={4}>
             <Card className="mb-4 shadow-sm">
               <Card.Img
                 variant="bottom"
