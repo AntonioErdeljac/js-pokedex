@@ -1,22 +1,24 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Container, Row } from 'react-bootstrap';
+import { useDispatch, useSelector, shallowEqual } from 'react-redux';
 
+import selectors from './selectors';
 import { Item } from './components';
 
+import { getItems } from '../../store/actions/items';
+
 const List = () => {
-  const [data, setData] = useState([]);
+  const dispatch = useDispatch();
+  const items = useSelector(selectors.items, shallowEqual);
 
   useEffect(() => {
-    axios
-      .get('https://pokeapi.co/api/v2/pokemon?limit=5')
-      .then(({ data: tempData }) => setData(tempData.results));
-  }, []);
+    dispatch(getItems());
+  }, [dispatch]);
 
   return (
     <Container>
       <Row>
-        {data.map((item, index) => (
+        {items.map((item, index) => (
           <Item key={item.name} name={item.name} index={index} />
         ))}
       </Row>
