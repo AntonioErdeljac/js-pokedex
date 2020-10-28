@@ -9,10 +9,11 @@ export const useList = () => {
   const dispatch = useDispatch();
 
   const items = useSelector(selectors.items, shallowEqual);
+  const isLoading = useSelector(selectors.isLoading, shallowEqual);
 
   useEffect(() => {
     dispatch(getItems());
   }, [dispatch]);
 
-  return { items };
+  return { items, isLoading };
 };

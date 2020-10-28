@@ -1,11 +1,15 @@
 import React from 'react';
 import { Container, Row } from 'react-bootstrap';
 
-import { Item } from './components';
+import { Item, Loader } from './components';
 import { useList } from './hooks';
 
 const List = () => {
-  const { items } = useList();
+  const { items, isLoading } = useList();
+
+  if (isLoading) {
+    return <Loader />;
+  }
 
   return (
     <Container>
