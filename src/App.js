@@ -1,11 +1,11 @@
 import React from 'react';
 
+import { List } from './components';
+
 const App = () => (
-  <p>
-    Hello app!Hello app!Hello app!Hello app!Hello app!Hello app!Hello app!Hello app!Hello app!Hello
-    app!Hello app!Hello app!Hello app!Hello app!Hello app!Hello app!Hello app!Hello app!Hello
-    app!Hello app!Hello app!Hello app!Hello app!Hello app!
-  </p>
+  <>
+    <List />
+  </>
 );
 
 export default App;
