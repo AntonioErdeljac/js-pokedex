@@ -18,18 +18,17 @@ const List = () => {
           <Col key={item.name} md={4}>
             <Card className="mb-4 shadow-sm">
               <Card.Img
-                variant="bottom"
+                className="p-5"
+                variant="top"
                 src={`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${`${
                   index + 1
                 }`.padStart(3, '0')}.png`}
               />
               <hr />
               <Card.Body>
-                <Card.Title className="text-capitalize">{item.name}</Card.Title>
-                <Card.Text className="text-muted">
-                  Some quick example text to build on the card title and make up the bulk of the
-                  cards content.
-                </Card.Text>
+                <Card.Title className="text-capitalize font-weight-bold text-center">
+                  {item.name}
+                </Card.Title>
               </Card.Body>
             </Card>
           </Col>
