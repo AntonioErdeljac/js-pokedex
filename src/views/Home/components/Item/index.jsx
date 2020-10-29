@@ -5,7 +5,7 @@ import { Col, Card } from 'react-bootstrap';
 
 import styles from './styles.scss';
 
-import FavoriteButton from '../../../FavoriteButton';
+import FavoriteButton from '../../../../components/FavoriteButton';
 
 import { item } from '../../../../utils';
 
