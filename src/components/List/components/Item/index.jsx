@@ -11,13 +11,13 @@ import { item } from '../../../../utils';
 
 const cx = cn.bind(styles);
 
-const Item = ({ name, index }) => {
+const Item = ({ name, index, src }) => {
   return (
     <Col className={cx('pd-card')} key={name} md={4}>
       <Card className="mb-4 shadow-sm">
-        <Card.Img className="p-5" variant="top" src={item.generateImage(index)} />
+        <Card.Img className="p-5" variant="top" src={src || item.generateImage(index)} />
         <div className={cx('pd-favorite__wrapper')}>
-          <FavoriteButton id={name} />
+          <FavoriteButton src={item.generateImage(index)} name={name} index={index} />
         </div>
         <hr />
         <Card.Body>
@@ -28,7 +28,12 @@ const Item = ({ name, index }) => {
   );
 };
 
+Item.defaultProps = {
+  src: null,
+};
+
 Item.propTypes = {
+  src: PropTypes.string,
   name: PropTypes.string.isRequired,
   index: PropTypes.number.isRequired,
 };

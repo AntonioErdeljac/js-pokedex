@@ -7,8 +7,8 @@ import styles from './styles.scss';
 
 const cx = cn.bind(styles);
 
-const FavoriteButton = ({ id }) => {
-  const { toggleFavorite, isFavorite } = useFavoriteButton({ id });
+const FavoriteButton = ({ src, name, index }) => {
+  const { toggleFavorite, isFavorite } = useFavoriteButton({ name, index, src });
 
   return (
     <button
@@ -26,8 +26,14 @@ const FavoriteButton = ({ id }) => {
   );
 };
 
+FavoriteButton.defaultProps = {
+  src: null,
+};
+
 FavoriteButton.propTypes = {
-  id: PropTypes.string.isRequired,
+  src: PropTypes.string,
+  name: PropTypes.string.isRequired,
+  index: PropTypes.number.isRequired,
 };
 
 export default memo(FavoriteButton);

@@ -9,6 +9,7 @@ export const useList = () => {
   const dispatch = useDispatch();
 
   const items = useSelector(selectors.items, shallowEqual);
+  const favorites = useSelector(selectors.favorites, shallowEqual);
   const isLoading = useSelector(selectors.isLoading, shallowEqual);
   const nextQuery = useSelector(selectors.nextQuery, shallowEqual);
   const hasLoaded = useSelector(selectors.hasLoaded, shallowEqual);
@@ -34,5 +35,5 @@ export const useList = () => {
     [isLoading, loadMore, hasMore],
   );
 
-  return { items, isLoading, onScroll };
+  return { items, isLoading, onScroll, favorites };
 };
