@@ -2,4 +2,11 @@
 
 .pd-profile {
   margin-top: map-get($map: $spacers, $key: 5) * 3;
+
+  &__favorite {
+    position: absolute;
+    bottom: -40px;
+    right: 10px;
+  }
 }
+

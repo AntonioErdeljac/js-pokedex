@@ -1,21 +1,52 @@
 import cn from 'classnames/bind';
 import React from 'react';
-import { Container } from 'react-bootstrap';
+import { Badge, Col, Container, Image } from 'react-bootstrap';
 
+import { isEmpty } from 'lodash';
 import styles from './styles.scss';
 import { useProfile } from './hooks';
 
 import { assets } from '../../utils';
+import { FavoriteButton } from '../../components';
 
 const cx = cn.bind(styles);
 
 const Profile = () => {
   const { item } = useProfile();
 
+  if (isEmpty(item)) {
+    return <p>Loading</p>;
+  }
+
   return (
     <Container className={cx('pd-profile')}>
-      <p className="text-capitalize">{item.name}</p>
-      <img alt="test" src={assets.generateImage(item.id)} />
+      <Col md={12} lg={{ span: 6, offset: 3 }}>
+        <div className="d-flex flex-column justify-content-center align-items-center w-100 position-relative">
+          <Image src={assets.generateImage(item.id)} />
+          <h3 className="text-capitalize font-weight-bold mt-3">{item.name}</h3>
+          <div className="d-inline-flex my-3">
+            {item.types.map((type) => (
+              <Badge className="mx-1 text-uppercase" variant="primary">
+                {type.type.name}
+              </Badge>
+            ))}
+          </div>
+          <div className={cx('pd-profile__favorite')}>
+            <FavoriteButton src={assets.generateImage(item.id)} name={item.name} index={item.id} />
+          </div>
+        </div>
+        <hr />
+        <div className="d-flex flex-column mt-5">
+          <div className="d-inline-flex">
+            <p className="font-weight-bold">Weight:&nbsp;</p>
+            <p>{item.weight}</p>
+          </div>
+          <div className="d-inline-flex">
+            <p className="font-weight-bold">Height:&nbsp;</p>
+            <p>{item.height}</p>
+          </div>
+        </div>
+      </Col>
     </Container>
   );
 };
