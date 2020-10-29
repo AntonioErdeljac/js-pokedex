@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Row } from 'react-bootstrap';
 
-import { Item, Loader } from './components';
+import { Item, Loader, LoadMore } from './components';
 import { useList } from './hooks';
 
 const List = () => {
@@ -18,6 +18,7 @@ const List = () => {
           <Item key={item.name} name={item.name} index={index} />
         ))}
       </Row>
+      <LoadMore />
     </Container>
   );
 };
