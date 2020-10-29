@@ -1,10 +1,22 @@
+import qs from 'query-string';
+
 import { actions } from '../../constants';
+
+const getQuery = (url) => {
+  if (url) {
+    return qs.parseUrl(url).query;
+  }
+
+  return null;
+};
 
 const initialState = {
   data: [],
   isLoading: false,
   hasFailedToLoad: false,
   hasLoaded: false,
+  nextQuery: null,
+  previousQuery: null,
 };
 
 const actionFactory = {
@@ -20,6 +32,8 @@ const actionFactory = {
     hasFailedToLoad: false,
     data: result.data.results,
     hasLoaded: true,
+    nextQuery: getQuery(result.data.next),
+    previousQuery: getQuery(result.data.previous),
   }),
   [actions.ITEMS_GET_FAILURE]: (state) => ({
     ...state,
