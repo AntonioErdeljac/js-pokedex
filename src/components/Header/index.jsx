@@ -1,5 +1,10 @@
+import cn from 'classnames/bind';
 import React, { memo } from 'react';
-import { Container, Navbar } from 'react-bootstrap';
+import { Container, Navbar, Nav, NavLink } from 'react-bootstrap';
+
+import styles from './styles.scss';
+
+const cx = cn.bind(styles);
 
 const Header = () => {
   return (
@@ -13,6 +18,16 @@ const Header = () => {
             alt="React Bootstrap logo"
           />
         </Navbar.Brand>
+        <Nav className={cx('pd-nav ml-auto')}>
+          <NavLink className="d-inline-flex align-items-center font-weight-bold">
+            <i className="material-icons mr-2">home</i>
+            Home
+          </NavLink>
+          <NavLink className="d-inline-flex align-items-center font-weight-bold">
+            <i className="material-icons mr-2">favorite</i>
+            Favorites
+          </NavLink>
+        </Nav>
       </Container>
     </Navbar>
   );
