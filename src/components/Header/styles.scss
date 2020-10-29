@@ -5,3 +5,9 @@
     display: none !important;
   }
 }
+
+.pd-brand {
+  @media only screen and (max-width: map-get($map: $grid-breakpoints, $key: lg)) {
+    height: 50px;
+  }
+}

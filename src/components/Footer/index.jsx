@@ -14,12 +14,7 @@ const Footer = () => {
   const { isActive } = useLinks();
 
   return (
-    <Nav
-      className={cx('pd-footer fixed-bottom shadow border-top')}
-      fill
-      variant="tabs"
-      defaultActiveKey="/home"
-    >
+    <Nav className={cx('pd-footer fixed-bottom shadow border-top')} fill variant="tabs">
       <Nav.Item
         className={cx('pd-footer__item', {
           'pd-footer__item-active': isActive(paths.client.HOME),

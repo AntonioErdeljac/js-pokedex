@@ -10,7 +10,7 @@ import { Item, BottomPixel, Loader, Empty } from './components';
 
 const cx = cn.bind(styles);
 
-const List = ({ name, items, onScroll, isLoading }) => {
+const List = ({ items, onScroll, isLoading }) => {
   if (isLoading && isEmpty(items)) {
     return (
       <Container className={cx('pd-list')}>
@@ -29,7 +29,6 @@ const List = ({ name, items, onScroll, isLoading }) => {
 
   return (
     <Container className={cx('pd-list')}>
-      <h3 className="font-weight-bold my-5">{name}</h3>
       <Row className="mt-3">
         {items.map((item, index) => (
           <Item src={item.src} key={item.name} name={item.name} index={index} />
@@ -50,7 +49,6 @@ List.defaultProps = {
 };
 
 List.propTypes = {
-  name: PropTypes.string.isRequired,
   isLoading: PropTypes.bool,
   items: PropTypes.arrayOf(
     PropTypes.shape({
