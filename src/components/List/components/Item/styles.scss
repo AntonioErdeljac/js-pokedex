@@ -11,8 +11,10 @@
   }
 }
 
-.pd-favorite__wrapper {
-  position: absolute;
-  bottom: 68px;
-  right: 10px;
+.pd-favorite {
+  &__wrapper {
+    position: absolute;
+    bottom: 68px;
+    right: 10px;
+  }
 }
