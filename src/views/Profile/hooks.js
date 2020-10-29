@@ -11,6 +11,7 @@ export const useProfile = () => {
   const params = useParams();
 
   const item = useSelector(selectors.item, shallowEqual);
+  const isLoading = useSelector(selectors.isLoading, shallowEqual);
 
   useEffect(() => {
     if (params.id) {
@@ -20,5 +21,5 @@ export const useProfile = () => {
     return () => dispatch(resetItem());
   }, [dispatch, params]);
 
-  return { item };
+  return { item, isLoading };
 };

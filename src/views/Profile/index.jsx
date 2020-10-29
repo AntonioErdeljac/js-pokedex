@@ -1,21 +1,30 @@
 import cn from 'classnames/bind';
 import React from 'react';
+import { isEmpty } from 'lodash';
 import { Badge, Col, Container, Image } from 'react-bootstrap';
 
-import { isEmpty } from 'lodash';
 import styles from './styles.scss';
 import { useProfile } from './hooks';
 
 import { assets } from '../../utils';
 import { FavoriteButton } from '../../components';
+import { Loader } from './components';
 
 const cx = cn.bind(styles);
 
 const Profile = () => {
-  const { item } = useProfile();
+  const { item, isLoading } = useProfile();
 
-  if (isEmpty(item)) {
-    return <p>Loading</p>;
+  if (isLoading && isEmpty(item)) {
+    return (
+      <Container className={cx('pd-profile')}>
+        <Loader />
+      </Container>
+    );
+  }
+
+  if (!isLoading && isEmpty(item)) {
+    return <p>Error</p>;
   }
 
   return (
