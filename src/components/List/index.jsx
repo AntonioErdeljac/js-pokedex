@@ -1,9 +1,13 @@
-import { isEmpty } from 'lodash';
+import cn from 'classnames/bind';
 import React from 'react';
+import { isEmpty } from 'lodash';
 import { Container, Row } from 'react-bootstrap';
 
+import styles from './styles.scss';
 import { Item, Loader, LoadMore } from './components';
 import { useList } from './hooks';
+
+const cx = cn.bind(styles);
 
 const List = () => {
   const { items, isLoading, loadMore, hasMore } = useList();
@@ -13,7 +17,7 @@ const List = () => {
   }
 
   return (
-    <Container>
+    <Container className={cx('pd-list')}>
       <Row>
         {items.map((item, index) => (
           <Item key={item.name} name={item.name} index={index} />

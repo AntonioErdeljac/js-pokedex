@@ -3,7 +3,7 @@ import { Container, Navbar } from 'react-bootstrap';
 
 const Header = () => {
   return (
-    <Navbar className="mb-5 shadow-sm" bg="white">
+    <Navbar fixed="top" className="mb-5 shadow-sm" bg="white">
       <Container className="d-inline-flex justify-content-center">
         <Navbar.Brand>
           <img
