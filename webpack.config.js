@@ -1,4 +1,6 @@
 const path = require('path');
+
+const CircularDependencyPlugin = require('circular-dependency-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
@@ -28,10 +30,16 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: `${__dirname}/src/index.html`,
+      template: `${__dirname}/public/index.html`,
       filename: 'index.html',
     }),
     new CleanWebpackPlugin(),
+    new CircularDependencyPlugin({
+      exclude: /\.html|node_modules/,
+      failOnError: true,
+      allowAsyncCycles: true,
+      cwd: process.cwd(),
+    }),
   ],
   devServer: {
     open: true,
