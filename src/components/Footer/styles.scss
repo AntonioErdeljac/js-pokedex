@@ -10,9 +10,19 @@
   &__item {
     background-color: $white;
 
+    &-active {
+      background-color: $primary !important;
+    }
+
     &__link {
       outline: none !important;
       border: none !important;
+      color: $text-muted;
+
+      &-active {
+        color: $white !important;
+        background-color: $primary !important;
+      }
     }
   }
 }

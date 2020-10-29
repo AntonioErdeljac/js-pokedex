@@ -7,7 +7,7 @@ import { List } from '../../components';
 const Favorites = () => {
   const { items } = useFavorites();
 
-  return <List items={items} />;
+  return <List name="Favorites" items={items} />;
 };
 
 export default memo(Favorites);
