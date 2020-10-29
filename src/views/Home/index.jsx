@@ -1,16 +1,17 @@
 import cn from 'classnames/bind';
-import Visibility from 'react-visibility-sensor';
 import React from 'react';
 import { isEmpty } from 'lodash';
-import { Container, Row, Tab, Tabs } from 'react-bootstrap';
+import { Container, Tab, Tabs } from 'react-bootstrap';
 
 import styles from './styles.scss';
-import { Item, Loader, BottomPixel } from './components';
+import { Loader } from './components';
 import { useList } from './hooks';
+
+import { List } from '../../components';
 
 const cx = cn.bind(styles);
 
-const List = () => {
+const Home = () => {
   const { items, isLoading, onScroll, favorites } = useList();
 
   if (isLoading && isEmpty(items)) {
@@ -21,27 +22,14 @@ const List = () => {
     <Container className={cx('pd-list')}>
       <Tabs defaultActiveKey="home" id="tabs">
         <Tab eventKey="home" title="Home">
-          <>
-            <Row className="mt-3">
-              {items.map((item, index) => (
-                <Item key={item.name} name={item.name} index={index} />
-              ))}
-            </Row>
-            <Visibility onChange={onScroll}>
-              <BottomPixel />
-            </Visibility>
-          </>
+          <List items={items} onScroll={onScroll} />
         </Tab>
         <Tab eventKey="favorites" title="Favorites">
-          <Row className="mt-3">
-            {favorites.map((item, index) => (
-              <Item src={item.src} key={item.name} name={item.name} index={index} />
-            ))}
-          </Row>
+          <List items={favorites} />
         </Tab>
       </Tabs>
     </Container>
   );
 };
 
-export default List;
+export default Home;
