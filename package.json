@@ -6,10 +6,12 @@
   "scripts": {
     "start": "webpack serve --mode development --env development",
     "build": "webpack --mode production",
+    "lint": "eslint ./src",
+    "lint:fix": "eslint ./src --fix",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "lint-staged": {
-    "src/**/*.js": "eslint"
+    "src/**/*.{js,jsx}": "eslint"
   },
   "husky": {
     "hooks": {
