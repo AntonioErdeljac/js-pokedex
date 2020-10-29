@@ -13,7 +13,7 @@ const Loader = () => {
       <Container>
         <Row>
           {[...new Array(3)].map((index) => (
-            <Col md={4} className="mb-4">
+            <Col key={Math.random()} md={4} className="mb-4">
               <Skeleton className={cx('pd-skeleton')} height={380} key={index} />
               <Skeleton className={cx('pd-skeleton mt-3')} height={30} />
               <Skeleton className={cx('pd-skeleton mt-3')} height={30} width={300} />
