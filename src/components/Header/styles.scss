@@ -11,3 +11,13 @@
     height: 50px;
   }
 }
+
+.pd-audio {
+  &--mobile {
+    display: none !important;
+
+    @media only screen and (max-width: map-get($map: $grid-breakpoints, $key: lg)) {
+      display: block !important;
+    }
+  }
+}
