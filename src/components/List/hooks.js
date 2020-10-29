@@ -21,7 +21,7 @@ export const useList = () => {
 
   const loadMore = useCallback(() => {
     dispatch(getItems(nextQuery));
-  }, [getItems, nextQuery]);
+  }, [dispatch, nextQuery]);
 
   const hasMore = useMemo(() => hasLoaded && nextQuery, [hasLoaded, nextQuery]);
 

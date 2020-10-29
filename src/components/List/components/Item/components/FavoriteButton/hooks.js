@@ -9,13 +9,13 @@ export const useFavoriteButton = ({ id }) => {
   const dispatch = useDispatch();
   const favorites = useSelector(selectors.favorites);
 
-  const isFavorite = useMemo(() => favorites.indexOf(id) !== -1, [favorites]);
+  const isFavorite = useMemo(() => favorites.indexOf(id) !== -1, [favorites, id]);
 
   const toggleFavorite = useCallback(() => {
     const newItems = isFavorite ? favorites.filter((item) => item !== id) : [...favorites, id];
 
     dispatch(setFavorites(newItems));
-  }, [favorites, isFavorite]);
+  }, [dispatch, favorites, id, isFavorite]);
 
   return { toggleFavorite, isFavorite };
 };

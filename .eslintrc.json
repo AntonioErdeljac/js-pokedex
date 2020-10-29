@@ -22,6 +22,8 @@
     "react-hooks"
   ],
   "rules": {
+    "react-hooks/exhaustive-deps": "warn",
+    "react-hooks/rules-of-hooks": "error",
     "prettier/prettier": "error",
     "import/prefer-default-export": 0,
     "react/jsx-filename-extension": [
