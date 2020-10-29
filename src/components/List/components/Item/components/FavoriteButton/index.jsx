@@ -8,12 +8,12 @@ import styles from './styles.scss';
 const cx = cn.bind(styles);
 
 const FavoriteButton = ({ id }) => {
-  const { setFavorite, isFavorite } = useFavoriteButton({ id });
+  const { toggleFavorite, isFavorite } = useFavoriteButton({ id });
 
   return (
     <button
       type="button"
-      onClick={setFavorite}
+      onClick={toggleFavorite}
       className={cx('pd-favorite shadow')}
       variant="primary"
     >

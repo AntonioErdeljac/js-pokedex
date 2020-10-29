@@ -11,7 +11,7 @@ export const useFavoriteButton = ({ id }) => {
     return favorites.indexOf(id) !== -1;
   }, [favorites]);
 
-  const setFavorite = useCallback(() => {
+  const toggleFavorite = useCallback(() => {
     const currentItems = getCurrentItems();
     let newItems = [...currentItems, id];
 
@@ -25,5 +25,5 @@ export const useFavoriteButton = ({ id }) => {
     }
   }, [isFavorite]);
 
-  return { setFavorite, isFavorite };
+  return { toggleFavorite, isFavorite };
 };
