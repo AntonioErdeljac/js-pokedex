@@ -1,14 +1,14 @@
 import cn from 'classnames/bind';
 import React from 'react';
 import { isEmpty } from 'lodash';
-import { Badge, Col, Container, Image } from 'react-bootstrap';
+import { Col, Container, Image } from 'react-bootstrap';
 
 import styles from './styles.scss';
 import { useProfile } from './hooks';
 
 import { assets } from '../../utils';
 import { FavoriteButton } from '../../components';
-import { Loader } from './components';
+import { Loader, Badges, Content } from './components';
 
 const cx = cn.bind(styles);
 
@@ -24,7 +24,7 @@ const Profile = () => {
   }
 
   if (!isLoading && isEmpty(item)) {
-    return <p>Error</p>;
+    return <h3>Unkown entity</h3>;
   }
 
   return (
@@ -33,28 +33,13 @@ const Profile = () => {
         <div className="d-flex flex-column justify-content-center align-items-center w-100 position-relative">
           <Image src={assets.generateImage(item.id)} />
           <h3 className="text-capitalize font-weight-bold mt-3">{item.name}</h3>
-          <div className="d-inline-flex my-3">
-            {item.types.map((type) => (
-              <Badge className="mx-1 text-uppercase" variant="primary">
-                {type.type.name}
-              </Badge>
-            ))}
-          </div>
+          <Badges types={item.types ?? []} />
           <div className={cx('pd-profile__favorite')}>
             <FavoriteButton src={assets.generateImage(item.id)} name={item.name} index={item.id} />
           </div>
         </div>
         <hr />
-        <div className="d-flex flex-column mt-5">
-          <div className="d-inline-flex">
-            <p className="font-weight-bold">Weight:&nbsp;</p>
-            <p>{item.weight}</p>
-          </div>
-          <div className="d-inline-flex">
-            <p className="font-weight-bold">Height:&nbsp;</p>
-            <p>{item.height}</p>
-          </div>
-        </div>
+        <Content height={item.height} weight={item.weight} />
       </Col>
     </Container>
   );
