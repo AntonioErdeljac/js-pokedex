@@ -1,9 +1,11 @@
 import { useCallback, useEffect, useMemo } from 'react';
 import { useDispatch, useSelector, shallowEqual } from 'react-redux';
+import { isEmpty } from 'lodash';
 
 import selectors from './selectors';
 
 import { getItems, resetItems } from '../../store/actions/items';
+import { cache } from '../../utils';
 
 export const useList = () => {
   const dispatch = useDispatch();
@@ -15,7 +17,11 @@ export const useList = () => {
   const hasLoaded = useSelector(selectors.hasLoaded, shallowEqual);
 
   useEffect(() => {
-    dispatch(getItems());
+    const cachedItems = cache.loadItems();
+
+    if (isEmpty(cachedItems)) {
+      dispatch(getItems());
+    }
 
     return () => dispatch(resetItems());
   }, [dispatch]);

@@ -1,6 +1,8 @@
 import keyMirror from 'keymirror';
 
 export default keyMirror({
-  FAVORITES: null,
-  MUTED: null,
+  PD_FAVORITES: null,
+  PD_MUTED: null,
+  PD_ITEMS: null,
+  PD_NEXT_QUERY: null,
 });
