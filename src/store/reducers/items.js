@@ -30,7 +30,7 @@ const actionFactory = {
     ...state,
     isLoading: false,
     hasFailedToLoad: false,
-    data: result.data.results,
+    data: [...state.data, ...result.data.results],
     hasLoaded: true,
     nextQuery: getQuery(result.data.next),
     previousQuery: getQuery(result.data.previous),

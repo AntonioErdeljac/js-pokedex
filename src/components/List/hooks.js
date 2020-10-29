@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useCallback, useEffect, useMemo } from 'react';
 import { useDispatch, useSelector, shallowEqual } from 'react-redux';
 
 import selectors from './selectors';
@@ -10,10 +10,18 @@ export const useList = () => {
 
   const items = useSelector(selectors.items, shallowEqual);
   const isLoading = useSelector(selectors.isLoading, shallowEqual);
+  const nextQuery = useSelector(selectors.nextQuery, shallowEqual);
+  const hasLoaded = useSelector(selectors.hasLoaded, shallowEqual);
 
   useEffect(() => {
     dispatch(getItems());
   }, [dispatch]);
 
-  return { items, isLoading };
+  const loadMore = useCallback(() => {
+    dispatch(getItems(nextQuery));
+  }, [getItems, nextQuery]);
+
+  const hasMore = useMemo(() => hasLoaded && nextQuery, [hasLoaded, nextQuery]);
+
+  return { items, isLoading, loadMore, hasMore };
 };
