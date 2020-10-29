@@ -1,2 +1,2 @@
 export { default as cache } from './cache';
-export { default as item } from './item';
+export { default as assets } from './assets';

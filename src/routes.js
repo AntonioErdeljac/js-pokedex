@@ -13,7 +13,7 @@ export default [
     exact: true,
   },
   {
-    paths: paths.client.PROFILE_ID,
+    path: paths.client.PROFILE_ID,
     component: Profile,
     exact: true,
   },
