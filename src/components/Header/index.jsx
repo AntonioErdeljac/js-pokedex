@@ -4,6 +4,7 @@ import { Container, Navbar, Nav, NavLink } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 import styles from './styles.scss';
+import logo from './images/logo.png';
 
 import { paths } from '../../constants';
 import { useLinks } from '../../hooks';
@@ -19,7 +20,7 @@ const Header = () => {
         <Navbar.Brand>
           <img
             height="70"
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/800px-International_Pok%C3%A9mon_logo.svg.png"
+            src={logo}
             className={cx('pd-brand d-inline-block align-top')}
             alt="React Bootstrap logo"
           />
