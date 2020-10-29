@@ -1,29 +1,21 @@
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useMemo } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { storage } from '../../../../../../constants';
+import selectors from './selectors';
 
-const getCurrentItems = () => JSON.parse(localStorage.getItem(storage.FAVORITES) || '[]');
+import { setFavorites } from '../../../../../../store/actions/favorites';
 
 export const useFavoriteButton = ({ id }) => {
-  const [favorites, setFavorites] = useState([...getCurrentItems()]);
+  const dispatch = useDispatch();
+  const favorites = useSelector(selectors.favorites);
 
-  const isFavorite = useMemo(() => {
-    return favorites.indexOf(id) !== -1;
-  }, [favorites]);
+  const isFavorite = useMemo(() => favorites.indexOf(id) !== -1, [favorites]);
 
   const toggleFavorite = useCallback(() => {
-    const currentItems = getCurrentItems();
-    let newItems = [...currentItems, id];
+    const newItems = isFavorite ? favorites.filter((item) => item !== id) : [...favorites, id];
 
-    if (!isFavorite) {
-      localStorage.setItem(storage.FAVORITES, JSON.stringify(newItems));
-      setFavorites(newItems);
-    } else {
-      newItems = currentItems.filter((item) => item !== id);
-      localStorage.setItem(storage.FAVORITES, JSON.stringify(newItems));
-      setFavorites(newItems);
-    }
-  }, [isFavorite]);
+    dispatch(setFavorites(newItems));
+  }, [favorites, isFavorite]);
 
   return { toggleFavorite, isFavorite };
 };
