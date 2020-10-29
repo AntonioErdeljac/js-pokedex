@@ -20,6 +20,7 @@ const initialState = {
 };
 
 const actionFactory = {
+  [actions.ITEMS_RESET]: () => ({ ...initialState }),
   [actions.ITEMS_GET_REQUEST]: (state) => ({
     ...state,
     isLoading: true,

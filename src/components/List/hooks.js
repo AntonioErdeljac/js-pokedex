@@ -3,7 +3,7 @@ import { useDispatch, useSelector, shallowEqual } from 'react-redux';
 
 import selectors from './selectors';
 
-import { getItems } from '../../store/actions/items';
+import { getItems, resetItems } from '../../store/actions/items';
 
 export const useList = () => {
   const dispatch = useDispatch();
@@ -15,6 +15,8 @@ export const useList = () => {
 
   useEffect(() => {
     dispatch(getItems());
+
+    return () => dispatch(resetItems());
   }, [dispatch]);
 
   const loadMore = useCallback(() => {

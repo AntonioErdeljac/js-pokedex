@@ -6,4 +6,6 @@ export default keyMirror({
   ITEMS_GET_REQUEST: null,
   ITEMS_GET_SUCCESS: null,
   ITEMS_GET_FAILURE: null,
+
+  ITEMS_RESET: null,
 });
