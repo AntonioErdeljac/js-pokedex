@@ -1,0 +1,21 @@
+@import '../../../../../../scss/bootstrap';
+
+.pd-favorite {
+  transition: .2s opacity;
+  cursor: pointer;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50% !important;
+  border: none !important;
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  bottom: 68px;
+  right: 10px;
+  background-color: $white !important;
+
+  &:hover {
+    opacity: 0.5;
+  }
+}
