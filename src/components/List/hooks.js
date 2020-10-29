@@ -25,5 +25,14 @@ export const useList = () => {
 
   const hasMore = useMemo(() => hasLoaded && nextQuery, [hasLoaded, nextQuery]);
 
-  return { items, isLoading, loadMore, hasMore };
+  const onScroll = useCallback(
+    (isVisible) => {
+      if (isVisible && !isLoading && hasMore) {
+        loadMore();
+      }
+    },
+    [isLoading, loadMore, hasMore],
+  );
+
+  return { items, isLoading, onScroll };
 };

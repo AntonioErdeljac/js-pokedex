@@ -1,16 +1,17 @@
 import cn from 'classnames/bind';
+import Visibility from 'react-visibility-sensor';
 import React from 'react';
 import { isEmpty } from 'lodash';
 import { Container, Row } from 'react-bootstrap';
 
 import styles from './styles.scss';
-import { Item, Loader, LoadMore } from './components';
+import { Item, Loader, BottomPixel } from './components';
 import { useList } from './hooks';
 
 const cx = cn.bind(styles);
 
 const List = () => {
-  const { items, isLoading, loadMore, hasMore } = useList();
+  const { items, isLoading, onScroll } = useList();
 
   if (isLoading && isEmpty(items)) {
     return <Loader />;
@@ -23,7 +24,9 @@ const List = () => {
           <Item key={item.name} name={item.name} index={index} />
         ))}
       </Row>
-      <LoadMore onClick={loadMore} disabled={!hasMore || isLoading} />
+      <Visibility onChange={onScroll}>
+        <BottomPixel />
+      </Visibility>
     </Container>
   );
 };
