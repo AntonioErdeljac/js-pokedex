@@ -14,7 +14,7 @@ const Item = ({ name, index }) => {
     <Col className={cx('pd-card')} key={name} md={4}>
       <Card className="mb-4 shadow-sm">
         <Card.Img className="p-5" variant="top" src={generateImage(index)} />
-        <FavoriteButton />
+        <FavoriteButton id={name} />
         <hr />
         <Card.Body>
           <Card.Title className="text-capitalize font-weight-bold text-center">{name}</Card.Title>
