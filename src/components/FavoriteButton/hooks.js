@@ -12,13 +12,20 @@ export const useFavoriteButton = ({ src, name, index }) => {
 
   const isFavorite = useMemo(() => find(favorites, { name }), [favorites, name]);
 
-  const toggleFavorite = useCallback(() => {
-    const newItems = isFavorite
-      ? favorites.filter((item) => item.name !== name)
-      : [...favorites, { name, index, src }];
+  const toggleFavorite = useCallback(
+    (event) => {
+      if (event) {
+        event.stopPropagation();
+      }
 
-    dispatch(setFavorites(newItems));
-  }, [dispatch, favorites, name, index, isFavorite, src]);
+      const newItems = isFavorite
+        ? favorites.filter((item) => item.name !== name)
+        : [...favorites, { name, index, src }];
+
+      dispatch(setFavorites(newItems));
+    },
+    [dispatch, favorites, name, index, isFavorite, src],
+  );
 
   return { toggleFavorite, isFavorite };
 };

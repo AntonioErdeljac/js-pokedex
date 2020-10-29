@@ -1,19 +1,27 @@
 import cn from 'classnames/bind';
 import PropTypes from 'prop-types';
-import React, { memo } from 'react';
+import React, { memo, useCallback } from 'react';
 import { Col, Card } from 'react-bootstrap';
+import { useHistory, generatePath } from 'react-router-dom';
 
 import styles from './styles.scss';
 
 import FavoriteButton from '../../../FavoriteButton';
 
 import { item } from '../../../../utils';
+import { paths } from '../../../../constants';
 
 const cx = cn.bind(styles);
 
 const Item = ({ name, index, src }) => {
+  const history = useHistory();
+
+  const onClick = useCallback(() => {
+    history.push(generatePath(paths.client.PROFILE_ID, { id: name }));
+  }, [history, name]);
+
   return (
-    <Col className={cx('pd-card')} key={name} xl={4} lg={6} md={12}>
+    <Col onClick={onClick} className={cx('pd-card')} key={name} xl={4} lg={6} md={12}>
       <Card className="mb-4 shadow-sm">
         <Card.Img className="p-5" variant="top" src={src || item.generateImage(index)} />
         <div className={cx('pd-favorite__wrapper')}>

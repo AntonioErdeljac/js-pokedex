@@ -17,7 +17,7 @@ const Header = () => {
   return (
     <Navbar fixed="top" className="mb-5 shadow-sm" bg="white">
       <Container className="d-inline-flex justify-content-center">
-        <Navbar.Brand>
+        <Navbar.Brand as={Link} to={paths.client.HOME}>
           <img
             height="70"
             src={logo}

@@ -1,4 +1,4 @@
-import { Favorites, Home } from './views';
+import { Favorites, Home, Profile } from './views';
 import { paths } from './constants';
 
 export default [
@@ -10,6 +10,11 @@ export default [
   {
     path: paths.client.FAVORITES,
     component: Favorites,
+    exact: true,
+  },
+  {
+    paths: paths.client.PROFILE_ID,
+    component: Profile,
     exact: true,
   },
 ];
