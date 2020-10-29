@@ -13,7 +13,7 @@ const cx = cn.bind(styles);
 
 const Item = ({ name, index, src }) => {
   return (
-    <Col className={cx('pd-card')} key={name} md={4}>
+    <Col className={cx('pd-card')} key={name} xl={4} lg={6} md={12}>
       <Card className="mb-4 shadow-sm">
         <Card.Img className="p-5" variant="top" src={src || item.generateImage(index)} />
         <div className={cx('pd-favorite__wrapper')}>

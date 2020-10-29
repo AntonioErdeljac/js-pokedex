@@ -1,0 +1,18 @@
+@import '../../scss/bootstrap';
+
+.pd-footer {
+  display: none !important;
+
+  @media only screen and (max-width: map-get($map: $grid-breakpoints, $key: lg)) {
+    display: inline-flex !important;
+  }
+
+  &__item {
+    background-color: $white;
+
+    &__link {
+      outline: none !important;
+      border: none !important;
+    }
+  }
+}
