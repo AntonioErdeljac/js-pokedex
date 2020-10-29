@@ -2,10 +2,19 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import Visibility from 'react-visibility-sensor';
 import { Row } from 'react-bootstrap';
+import { isEmpty } from 'lodash';
 
-import { Item, BottomPixel } from './components';
+import { Item, BottomPixel, Loader, Empty } from './components';
 
-const List = ({ items, onScroll }) => {
+const List = ({ items, onScroll, isLoading }) => {
+  if (isLoading && isEmpty(items)) {
+    return <Loader />;
+  }
+
+  if (!isLoading && isEmpty(items)) {
+    return <Empty />;
+  }
+
   return (
     <>
       <Row className="mt-3">
@@ -24,9 +33,11 @@ const List = ({ items, onScroll }) => {
 
 List.defaultProps = {
   onScroll: null,
+  isLoading: false,
 };
 
 List.propTypes = {
+  isLoading: PropTypes.bool,
   items: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string,

@@ -1,0 +1,16 @@
+@import '../../../../scss/bootstrap';
+
+.pd-empty {
+  &__image {
+    height: 300px;
+    width: auto;
+
+    @media only screen and (max-width: map-get($map: $grid-breakpoints, $key: lg)) {
+      height: 200px;
+    }
+  }
+
+  &__text {
+    font-size: $h4-font-size;
+  }
+}
