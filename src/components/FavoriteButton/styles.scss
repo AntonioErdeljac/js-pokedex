@@ -1,7 +1,7 @@
-@import '../../../../../../scss/bootstrap';
+@import '../../scss/bootstrap';
 
 .pd-favorite {
-  transition: .2s opacity;
+  transition: .2s transform;
   cursor: pointer;
   display: flex !important;
   justify-content: center;
@@ -10,14 +10,11 @@
   border: none !important;
   height: 50px;
   width: 50px;
-  position: absolute;
-  bottom: 68px;
-  right: 10px;
   background-color: $white !important;
 
   outline: none !important;
 
   &:hover {
-    opacity: 0.5;
+    transform: scale(1.1);
   }
 }
