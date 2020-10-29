@@ -9,6 +9,6 @@ export const resetItems = () => ({
 export const getItems = (params = DEFAULT_QUERY) => ({
   [actions.API_CALL]: {
     types: [actions.ITEMS_GET_REQUEST, actions.ITEMS_GET_SUCCESS, actions.ITEMS_GET_FAILURE],
-    promise: (api) => api.get(paths.ITEMS, { params }),
+    promise: (api) => api.get(paths.server.ITEMS, { params }),
   },
 });

@@ -1,15 +1,22 @@
 import React from 'react';
 import { Provider } from 'react-redux';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
+import routes from './routes';
 import store from './store';
 import { Header, Footer } from './components';
-import { Home } from './views';
 
 const App = () => (
   <Provider store={store}>
-    <Header />
-    <Home />
-    <Footer />
+    <Router>
+      <Header />
+      <Switch>
+        {routes.map((route) => (
+          <Route exact={route.exact} path={route.path} component={route.component} />
+        ))}
+      </Switch>
+      <Footer />
+    </Router>
   </Provider>
 );
 

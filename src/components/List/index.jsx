@@ -1,22 +1,34 @@
+import cn from 'classnames/bind';
 import PropTypes from 'prop-types';
 import React from 'react';
 import Visibility from 'react-visibility-sensor';
-import { Row } from 'react-bootstrap';
+import { Container, Row } from 'react-bootstrap';
 import { isEmpty } from 'lodash';
 
+import styles from './styles.scss';
 import { Item, BottomPixel, Loader, Empty } from './components';
+
+const cx = cn.bind(styles);
 
 const List = ({ items, onScroll, isLoading }) => {
   if (isLoading && isEmpty(items)) {
-    return <Loader />;
+    return (
+      <Container className={cx('pd-list')}>
+        <Loader />
+      </Container>
+    );
   }
 
   if (!isLoading && isEmpty(items)) {
-    return <Empty />;
+    return (
+      <Container className={cx('pd-list')}>
+        <Empty />
+      </Container>
+    );
   }
 
   return (
-    <>
+    <Container className={cx('pd-list')}>
       <Row className="mt-3">
         {items.map((item, index) => (
           <Item src={item.src} key={item.name} name={item.name} index={index} />
@@ -27,7 +39,7 @@ const List = ({ items, onScroll, isLoading }) => {
           <BottomPixel />
         </Visibility>
       )}
-    </>
+    </Container>
   );
 };
 
