@@ -2,7 +2,7 @@
 
 Pokedex app built with Webpack and React.js for Infinum.
 
-## Continous integration
+## CI / CD
 
 - [Netlify](https://reverent-lewin-6110a6.netlify.app/)
 
