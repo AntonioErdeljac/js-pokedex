@@ -17,7 +17,7 @@ git clone https://github.com/AntonioErdeljac/js-infinum-pokedex.git
 npm i
 ```
 
-### Development mode
+## Development mode
 
 ```shell
 npm run start
