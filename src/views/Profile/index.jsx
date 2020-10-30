@@ -15,16 +15,12 @@ const cx = cn.bind(styles);
 const Profile = () => {
   const { item, isLoading } = useProfile();
 
-  if (isLoading && isEmpty(item)) {
+  if (isLoading || isEmpty(item)) {
     return (
       <Container className={cx('pd-profile')}>
         <Loader />
       </Container>
     );
-  }
-
-  if (!isLoading && isEmpty(item)) {
-    return <h3>Unkown entity</h3>;
   }
 
   return (

@@ -13,18 +13,18 @@ import FadeIn from '../FadeIn';
 const cx = cn.bind(styles);
 
 const List = ({ items, onScroll, isLoading, hasLoaded }) => {
-  if (isLoading && isEmpty(items)) {
-    return (
-      <Container className={cx('pd-list')}>
-        <Loader />
-      </Container>
-    );
-  }
-
   if (hasLoaded && isEmpty(items)) {
     return (
       <Container className={cx('pd-list')}>
         <Empty />
+      </Container>
+    );
+  }
+
+  if (isLoading || isEmpty(items)) {
+    return (
+      <Container className={cx('pd-list')}>
+        <Loader />
       </Container>
     );
   }

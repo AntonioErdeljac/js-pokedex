@@ -17,7 +17,7 @@ const FadeIn = ({ children }) => {
 };
 
 FadeIn.propTypes = {
-  children: PropTypes.elementType.isRequired,
+  children: PropTypes.node.isRequired,
 };
 
 export default memo(FadeIn);
