@@ -23,6 +23,7 @@
     "react-hooks"
   ],
   "rules": {
+    "react/jsx-props-no-spreading": 0,
     "react-hooks/exhaustive-deps": "warn",
     "react-hooks/rules-of-hooks": "error",
     "prettier/prettier": "error",

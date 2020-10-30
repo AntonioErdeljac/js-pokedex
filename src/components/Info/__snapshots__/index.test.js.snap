@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Info renders correctly according to snapshot 1`] = `
+<div
+  className="pd-info w-100 d-flex flex-column justify-content-center align-items-center"
+>
+  <img
+    alt="info"
+    className="pd-info__image rounded border my-5"
+  />
+  <p
+    className="pd-info__text text-muted mt-3"
+  />
+</div>
+`;

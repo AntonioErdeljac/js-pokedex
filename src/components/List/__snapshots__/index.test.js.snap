@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`List renders correctly according to snapshot 1`] = `
+<Memo(FadeIn)>
+  <Container
+    className="pd-list"
+    fluid={false}
+  >
+    <Memo(Info)
+      image="test-file-stub"
+      text="No items found."
+    />
+  </Container>
+</Memo(FadeIn)>
+`;

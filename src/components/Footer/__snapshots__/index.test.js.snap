@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer renders correctly according to snapshot 1`] = `
+<Nav
+  className="pd-footer fixed-bottom shadow border-top"
+  fill={true}
+  justify={false}
+  variant="tabs"
+>
+  <NavItem
+    className="pd-footer__item"
+  >
+    <NavLink
+      active={false}
+      as={
+        Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "render": [Function],
+        }
+      }
+      className="pd-footer__item__link display-inline-flex align-items-center"
+      disabled={false}
+      to="/"
+    >
+      <i
+        className="material-icons mt-1"
+      >
+        home
+      </i>
+    </NavLink>
+  </NavItem>
+  <NavItem
+    className="pd-footer__item"
+  >
+    <NavLink
+      active={false}
+      as={
+        Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "render": [Function],
+        }
+      }
+      className="pd-footer__item__link display-inline-flex align-items-center"
+      disabled={false}
+      to="/favorites"
+    >
+      <i
+        className="material-icons mt-1"
+      >
+        favorite
+      </i>
+    </NavLink>
+  </NavItem>
+</Nav>
+`;

@@ -1,0 +1,86 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header renders correctly according to snapshot 1`] = `
+<Navbar
+  bg="white"
+  className="mb-5 shadow-sm"
+  collapseOnSelect={false}
+  expand={true}
+  fixed="top"
+  variant="light"
+>
+  <Container
+    className="d-inline-flex align-items-center justify-content-center"
+    fluid={false}
+  >
+    <NavbarBrand
+      className="mr-0"
+      to="/"
+    >
+      <img
+        alt="Pokedex logo"
+        className="pd-brand d-inline-block align-top"
+        height="70"
+        src="test-file-stub"
+      />
+    </NavbarBrand>
+    <Nav
+      className="pd-nav ml-auto"
+      fill={false}
+      justify={false}
+    >
+      <Button
+        active={false}
+        className="d-flex justify-content-center align-items-center mr-3"
+        disabled={false}
+        onClick={[Function]}
+        variant="light"
+      >
+        <i
+          className="material-icons"
+        >
+          volume_off
+        </i>
+      </Button>
+      <NavLink
+        active={false}
+        as={
+          Object {
+            "$$typeof": Symbol(react.forward_ref),
+            "render": [Function],
+          }
+        }
+        className="d-inline-flex align-items-center font-weight-bold"
+        disabled={false}
+        to="/"
+      >
+        <i
+          className="material-icons mr-2"
+        >
+          home
+        </i>
+        Home
+      </NavLink>
+      <NavLink
+        active={false}
+        as={
+          Object {
+            "$$typeof": Symbol(react.forward_ref),
+            "render": [Function],
+          }
+        }
+        className="d-inline-flex align-items-center font-weight-bold"
+        disabled={false}
+        to="/favorites"
+      >
+        <i
+          className="material-icons mr-2"
+        >
+          favorite
+        </i>
+        Favorites
+      </NavLink>
+    </Nav>
+  </Container>
+</Navbar>
+`;
