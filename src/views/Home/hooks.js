@@ -35,5 +35,5 @@ export const useList = () => {
     [isLoading, loadMore, hasMore],
   );
 
-  return { items, isLoading, onScroll, favorites };
+  return { items, isLoading, onScroll, favorites, hasLoaded };
 };
