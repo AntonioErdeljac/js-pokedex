@@ -1,6 +1,7 @@
 import qs from 'query-string';
 
 import { actions } from '../../constants';
+import { cache } from '../../utils';
 
 const getQuery = (url) => {
   if (url) {
@@ -16,26 +17,40 @@ const initialState = {
   hasFailedToLoad: false,
   hasLoaded: false,
   nextQuery: null,
-  previousQuery: null,
 };
 
 const actionFactory = {
   [actions.ITEMS_RESET]: () => ({ ...initialState }),
+  [actions.ITEMS_SET]: (state, { data }) => ({
+    ...state,
+    hasLoaded: true,
+    hasFailedToLoad: false,
+    isLoading: false,
+    data: data.data,
+    nextQuery: data.nextQuery,
+  }),
   [actions.ITEMS_GET_REQUEST]: (state) => ({
     ...state,
     isLoading: true,
     hasFailedToLoad: false,
     hasLoaded: false,
   }),
-  [actions.ITEMS_GET_SUCCESS]: (state, { result }) => ({
-    ...state,
-    isLoading: false,
-    hasFailedToLoad: false,
-    data: [...state.data, ...result.data.results],
-    hasLoaded: true,
-    nextQuery: getQuery(result.data.next),
-    previousQuery: getQuery(result.data.previous),
-  }),
+  [actions.ITEMS_GET_SUCCESS]: (state, { result }) => {
+    const data = [...state.data, ...result.data.results];
+    const nextQuery = getQuery(result.data.next);
+
+    cache.saveItems(data);
+    cache.saveNextQuery(nextQuery);
+
+    return {
+      ...state,
+      isLoading: false,
+      hasFailedToLoad: false,
+      data,
+      hasLoaded: true,
+      nextQuery,
+    };
+  },
   [actions.ITEMS_GET_FAILURE]: (state) => ({
     ...state,
     data: [],

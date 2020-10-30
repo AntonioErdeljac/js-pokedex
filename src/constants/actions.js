@@ -11,6 +11,7 @@ export default keyMirror({
   ITEM_GET_REQUEST: null,
   ITEM_GET_SUCCESS: null,
   ITEM_GET_FAILURE: null,
+  ITEMS_SET: null,
   ITEM_RESET: null,
 
   FAVORITES_SET: null,
