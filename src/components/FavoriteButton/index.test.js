@@ -9,9 +9,19 @@ jest.mock('react-redux', () => ({
   useDispatch: jest.fn(() => () => {}),
 }));
 
+const makeProps = ({ src, name, index } = {}) => ({
+  src: src || null,
+  name: name || 'pikachu',
+  index: index || 1,
+});
+
+const renderComponent = (props) => {
+  return shallow(<FavoriteButton {...props} />);
+};
+
 describe('FavoriteButton', () => {
   it('renders correctly according to snapshot', () => {
-    const wrapper = shallow(<FavoriteButton />);
+    const wrapper = renderComponent(makeProps());
 
     expect(toJson(wrapper)).toMatchSnapshot();
   });

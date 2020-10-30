@@ -6,10 +6,21 @@ exports[`List renders correctly according to snapshot 1`] = `
     className="pd-list"
     fluid={false}
   >
-    <Memo(Info)
-      image="test-file-stub"
-      text="No items found."
-    />
+    <Row
+      className="mt-3"
+      noGutters={false}
+    >
+      <Memo(Item)
+        index={0}
+        key="Lorem"
+        name="Lorem"
+      />
+      <Memo(Item)
+        index={1}
+        key="Ipsum"
+        name="Ipsum"
+      />
+    </Row>
   </Container>
 </Memo(FadeIn)>
 `;

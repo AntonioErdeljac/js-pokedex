@@ -7,9 +7,12 @@ exports[`Info renders correctly according to snapshot 1`] = `
   <img
     alt="info"
     className="pd-info__image rounded border my-5"
+    src={null}
   />
   <p
     className="pd-info__text text-muted mt-3"
-  />
+  >
+    Lorem
+  </p>
 </div>
 `;
