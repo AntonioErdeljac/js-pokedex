@@ -5,27 +5,33 @@ import Visibility from 'react-visibility-sensor';
 import { Container, Row } from 'react-bootstrap';
 import { isEmpty } from 'lodash';
 
+import empty from './images/empty.png';
 import styles from './styles.scss';
-import { Item, BottomPixel, Loader, Empty } from './components';
+import { Item, BottomPixel, Loader } from './components';
 
 import FadeIn from '../FadeIn';
+import Info from '../Info';
 
 const cx = cn.bind(styles);
 
 const List = ({ items, onScroll, isLoading, hasLoaded }) => {
   if (hasLoaded && isEmpty(items)) {
     return (
-      <Container className={cx('pd-list')}>
-        <Empty />
-      </Container>
+      <FadeIn>
+        <Container className={cx('pd-list')}>
+          <Info text="No items found." image={empty} />
+        </Container>
+      </FadeIn>
     );
   }
 
   if (isLoading || isEmpty(items)) {
     return (
-      <Container className={cx('pd-list')}>
-        <Loader />
-      </Container>
+      <FadeIn>
+        <Container className={cx('pd-list')}>
+          <Loader />
+        </Container>
+      </FadeIn>
     );
   }
 

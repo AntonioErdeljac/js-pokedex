@@ -22,7 +22,7 @@ const actionFactory = {
     data: result.data,
     hasLoaded: true,
   }),
-  [actions.ITEMS_GET_FAILURE]: (state) => ({
+  [actions.ITEM_GET_FAILURE]: (state) => ({
     ...state,
     data: {},
     isLoading: false,

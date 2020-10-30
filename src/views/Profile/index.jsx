@@ -3,23 +3,36 @@ import React from 'react';
 import { isEmpty } from 'lodash';
 import { Col, Container, Image } from 'react-bootstrap';
 
+import error from './images/error.png';
 import styles from './styles.scss';
 import { Loader, Badges, Content } from './components';
 import { useProfile } from './hooks';
 
 import { assets } from '../../utils';
-import { FadeIn, FavoriteButton } from '../../components';
+import { Info, FadeIn, FavoriteButton } from '../../components';
 
 const cx = cn.bind(styles);
 
 const Profile = () => {
-  const { item, isLoading } = useProfile();
+  const { item, isLoading, hasFailedToLoad } = useProfile();
+
+  if (hasFailedToLoad) {
+    return (
+      <FadeIn>
+        <Container className={cx('pd-profile')}>
+          <Info text="Something went wrong." image={error} />
+        </Container>
+      </FadeIn>
+    );
+  }
 
   if (isLoading || isEmpty(item)) {
     return (
-      <Container className={cx('pd-profile')}>
-        <Loader />
-      </Container>
+      <FadeIn>
+        <Container className={cx('pd-profile')}>
+          <Loader />
+        </Container>
+      </FadeIn>
     );
   }
 

@@ -12,6 +12,7 @@ export const useProfile = () => {
 
   const item = useSelector(selectors.item, shallowEqual);
   const isLoading = useSelector(selectors.isLoading, shallowEqual);
+  const hasFailedToLoad = useSelector(selectors.hasFailedToLoad, shallowEqual);
 
   useEffect(() => {
     if (params.id) {
@@ -21,5 +22,5 @@ export const useProfile = () => {
     return () => dispatch(resetItem());
   }, [dispatch, params]);
 
-  return { item, isLoading };
+  return { item, isLoading, hasFailedToLoad };
 };
