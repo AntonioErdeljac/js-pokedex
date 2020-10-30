@@ -3,12 +3,11 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import theme from './audio/theme.mp3';
 
 import { useLinks } from '../../hooks';
-import { cache } from '../../utils';
 
 export const useHeader = () => {
   const { isActive } = useLinks();
 
-  const [isMuted, setIsMuted] = useState(!!cache.loadMuted());
+  const [isMuted, setIsMuted] = useState(true);
   const audio = useRef(new Audio(theme));
 
   useEffect(() => {
@@ -21,7 +20,6 @@ export const useHeader = () => {
 
   const toggleAudio = useCallback(() => {
     setIsMuted((oldIsMuted) => {
-      cache.saveMuted(!oldIsMuted);
       return !oldIsMuted;
     });
   }, []);
