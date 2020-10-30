@@ -25,7 +25,7 @@ const List = ({ items, onScroll, isLoading, hasLoaded }) => {
     );
   }
 
-  if (isLoading || isEmpty(items)) {
+  if (isLoading && isEmpty(items)) {
     return (
       <FadeIn>
         <Container className={cx('pd-list')}>
