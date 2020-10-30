@@ -1,7 +1,7 @@
 @import '../../scss/bootstrap';
 
 .pd-profile {
-  margin-top: map-get($map: $spacers, $key: 5) * 3;
+  margin: map-get($map: $spacers, $key: 5) * 3 0px;
 
   &__favorite {
     position: absolute;
