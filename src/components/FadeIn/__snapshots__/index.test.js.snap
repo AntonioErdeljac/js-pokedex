@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FadeIn renders correctly according to snapshot 1`] = `
+<AnimatePresence>
+  <ForwardRef(MotionComponent)
+    animate={
+      Object {
+        "opacity": 1,
+        "y": 0,
+      }
+    }
+    initial={
+      Object {
+        "opacity": 0,
+        "y": -100,
+      }
+    }
+    transition={
+      Object {
+        "duration": 0.5,
+      }
+    }
+  >
+    Content
+  </ForwardRef(MotionComponent)>
+</AnimatePresence>
+`;
