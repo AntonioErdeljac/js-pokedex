@@ -26,7 +26,7 @@ const Profile = () => {
     );
   }
 
-  if (isLoading && isEmpty(item)) {
+  if (isLoading || isEmpty(item)) {
     return (
       <FadeIn>
         <Container className={cx('pd-profile')}>
