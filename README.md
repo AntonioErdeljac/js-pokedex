@@ -1,30 +1,34 @@
 # js-infinum-pokedex
 
-Pokedex app built with Webpack, Babel and React.js for Infinum.
+Pokedex app built with Webpack and React.js for Infinum.
 
-## Getting started
+## Continous integration
 
-Clone the repository
+- [Netlify](https://reverent-lewin-6110a6.netlify.app/)
+
+### Cloning the repository
 
 ```shell
 git clone https://github.com/AntonioErdeljac/js-infinum-pokedex.git
 ```
 
-## Install packages
+### Install packages
 
 
 ```shell
 npm i
 ```
 
-## Development mode
+## Available commands
 
-```shell
-npm run start
-```
+Running commands with npm `npm run [command]`
 
-## Production mode
-
-```shell
-npm run build
-```
+| command            | description                                                                                                                                                                 |
+| :----------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `start`            | Starts a development instance of app using webpack dev    server                                                                                                                                                           |
+| `build`            | Creates a production bundle using webpack                                                                                                                                   |
+| `test`             | Opens the test suite                                                                                                                                                        |
+| `test:watch`       | Runs the test suite with watch option                                                                                                                                       |
+| `test:coverage`    | Generates a coverage report                                                                                                                                                 |
+| `lint`             | Syntax check                                                                                                                                                                |
+| `lint:fix`         | Fix syntax as far as automatically possible                                                                                                                                 |
