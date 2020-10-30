@@ -3,6 +3,10 @@
 .pd-profile {
   margin: map-get($map: $spacers, $key: 5) * 3 0px;
 
+  @media only screen and (max-width: map-get($map: $grid-breakpoints, $key: lg)) {
+    margin: map-get($map: $spacers, $key: 5) * 2 0px !important;
+  }
+
   &__favorite {
     position: absolute;
     bottom: -40px;

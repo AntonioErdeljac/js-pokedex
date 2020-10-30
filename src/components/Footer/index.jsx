@@ -15,11 +15,7 @@ const Footer = () => {
 
   return (
     <Nav className={cx('pd-footer fixed-bottom shadow border-top')} fill variant="tabs">
-      <Nav.Item
-        className={cx('pd-footer__item', {
-          'pd-footer__item-active': isActive(paths.client.HOME),
-        })}
-      >
+      <Nav.Item className={cx('pd-footer__item')}>
         <Nav.Link
           active={isActive(paths.client.HOME)}
           as={Link}
@@ -31,11 +27,7 @@ const Footer = () => {
           <i className="material-icons mt-1">home</i>
         </Nav.Link>
       </Nav.Item>
-      <Nav.Item
-        className={cx('pd-footer__item', {
-          'pd-footer__item-active': isActive(paths.client.FAVORITES),
-        })}
-      >
+      <Nav.Item className={cx('pd-footer__item')}>
         <Nav.Link
           active={isActive(paths.client.FAVORITES)}
           as={Link}
