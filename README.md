@@ -1,6 +1,6 @@
-# js-infinum-pokedex
+# react-pokedex
 
-Pokedex app built with Webpack and React.js for Infinum.
+Pokedex app built with Webpack and React.js.
 
 ## CI / CD
 
@@ -9,7 +9,7 @@ Pokedex app built with Webpack and React.js for Infinum.
 ### Cloning the repository
 
 ```shell
-git clone https://github.com/AntonioErdeljac/js-infinum-pokedex.git
+git clone https://github.com/AntonioErdeljac/react-pokedex.git
 ```
 
 ### Install packages

@@ -1,5 +1,5 @@
 {
-  "name": "js-infinum-pokedex",
+  "name": "react-pokedex",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -24,14 +24,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AntonioErdeljac/js-infinum-pokedex.git"
+    "url": "git+https://github.com/AntonioErdeljac/react-pokedex.git"
   },
   "author": "Antonio Erdeljac",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/AntonioErdeljac/js-infinum-pokedex/issues"
+    "url": "https://github.com/AntonioErdeljac/react-pokedex/issues"
   },
-  "homepage": "https://github.com/AntonioErdeljac/js-infinum-pokedex#readme",
+  "homepage": "https://github.com/AntonioErdeljac/react-pokedex#readme",
   "dependencies": {
     "axios": "0.21.0",
     "babel-loader": "8.1.0",
