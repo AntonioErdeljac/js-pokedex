@@ -1,4 +1,4 @@
-# react-pokedex
+# js-pokedex
 [![Netlify Status](https://api.netlify.com/api/v1/badges/bc98d38d-77c9-43aa-86d5-560360a98e51/deploy-status)](https://app.netlify.com/sites/reverent-lewin-6110a6/deploys)
 
 Pokedex app built with Webpack and React.js.
@@ -10,7 +10,7 @@ Pokedex app built with Webpack and React.js.
 ### Cloning the repository
 
 ```shell
-git clone https://github.com/AntonioErdeljac/react-pokedex.git
+git clone https://github.com/AntonioErdeljac/js-pokedex.git
 ```
 
 ### Install packages
