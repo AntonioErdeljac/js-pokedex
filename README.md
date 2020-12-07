@@ -5,7 +5,7 @@ Pokedex app built with Webpack and React.js.
 
 ### CI / CD
 [![Netlify Status](https://api.netlify.com/api/v1/badges/4f615b92-82ed-451d-8939-9f86d3f8c0f5/deploy-status)](https://app.netlify.com/sites/quizzical-cray-6ae2e4/deploys)
-![Node.js CI](https://github.com/AntonioErdeljac/js-web-rimac/workflows/Node.js%20CI/badge.svg)
+![Node.js CI](https://github.com/AntonioErdeljac/js-pokedex/workflows/Node.js%20CI/badge.svg)
 
 [Live version](https://reverent-lewin-6110a6.netlify.app/)
 
@@ -17,7 +17,7 @@ Pokedex app built with Webpack and React.js.
 
 ### Test
 [![testing: Jest](https://img.shields.io/badge/Tests-Jest-red?logo=jest&style=flat)](https://github.com/facebook/jest)
-[![testing: Enzyme](https://img.shields.io/badge/Tests-Enzyme-red?logo=enzyme&style=flat)](https://github.com/enzymejs/enzyme
+[![testing: Enzyme](https://img.shields.io/badge/Tests-Enzyme-red?logo=enzyme&style=flat)](https://github.com/enzymejs/enzyme)
 
 
 ### Cloning the repository
