@@ -1,7 +1,6 @@
 import qs from 'query-string';
 
 import { actions } from '../../constants';
-import { cache } from '../../utils';
 
 const getQuery = (url) => {
   if (url) {
@@ -38,9 +37,6 @@ const actionFactory = {
   [actions.ITEMS_GET_SUCCESS]: (state, { result }) => {
     const data = [...state.data, ...result.data.results];
     const nextQuery = getQuery(result.data.next);
-
-    cache.saveItems(data);
-    cache.saveNextQuery(nextQuery);
 
     return {
       ...state,

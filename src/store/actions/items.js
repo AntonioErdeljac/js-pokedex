@@ -1,6 +1,4 @@
-import { isEmpty } from 'lodash';
 import { actions, paths } from '../../constants';
-import { cache } from '../../utils';
 
 const DEFAULT_QUERY = { limit: 12 };
 
@@ -19,16 +17,3 @@ export const setItems = (data) => ({
   type: actions.ITEMS_SET,
   data,
 });
-
-export const initializeItems = () => {
-  const cachedItems = cache.loadItems();
-  const cachedNextQuery = cache.loadNextQuery();
-
-  const data = { data: cachedItems, nextQuery: cachedNextQuery };
-
-  if (!isEmpty(cachedItems)) {
-    return setItems(data);
-  }
-
-  return getItems();
-};
