@@ -42,12 +42,17 @@ const List = ({ items, onScroll, isLoading, hasLoaded }) => {
           {items.map((item, index) => (
             <Item src={item.src} key={item.name} name={item.name} index={index} />
           ))}
+          {isLoading && !isEmpty(items) ? (
+            <Container>
+              <Loader />
+            </Container>
+          ) : null}
         </Row>
-        {onScroll && (
+        {onScroll ? (
           <Visibility onChange={onScroll}>
             <BottomPixel />
           </Visibility>
-        )}
+        ) : null}
       </Container>
     </FadeIn>
   );
