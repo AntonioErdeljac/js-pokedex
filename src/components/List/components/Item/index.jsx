@@ -2,7 +2,7 @@ import cn from 'classnames/bind';
 import PropTypes from 'prop-types';
 import React, { memo, useCallback } from 'react';
 import { Col, Card } from 'react-bootstrap';
-import { useHistory, generatePath } from 'react-router-dom';
+import { useNavigate, generatePath } from 'react-router-dom';
 
 import styles from './styles.scss';
 
@@ -14,11 +14,11 @@ import { paths } from '../../../../constants';
 const cx = cn.bind(styles);
 
 const Item = ({ name, index, src }) => {
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const onClick = useCallback(() => {
-    history.push(generatePath(paths.client.PROFILE_ID, { id: name }));
-  }, [history, name]);
+    navigate(generatePath(paths.client.PROFILE_ID, { id: name }));
+  }, [navigate, name]);
 
   return (
     <Col onClick={onClick} className={cx('pd-card')} key={name} xl={4} lg={6} md={12}>
