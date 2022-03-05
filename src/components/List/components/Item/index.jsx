@@ -8,12 +8,11 @@ import styles from './styles.scss';
 
 import FavoriteButton from '../../../FavoriteButton';
 
-import { assets } from '../../../../utils';
 import { paths } from '../../../../constants';
 
 const cx = cn.bind(styles);
 
-const Item = ({ name, index, src }) => {
+const Item = ({ name, index, photo }) => {
   const navigate = useNavigate();
 
   const onClick = useCallback(() => {
@@ -23,9 +22,9 @@ const Item = ({ name, index, src }) => {
   return (
     <Col onClick={onClick} className={cx('pd-card')} key={name} xl={4} lg={6} md={12}>
       <Card className="mb-4 shadow-sm">
-        <Card.Img className="p-5" variant="top" src={src || assets.generateImage(index + 1)} />
+        <Card.Img className="p-5" variant="top" src={photo} />
         <div className={cx('pd-favorite__wrapper')}>
-          <FavoriteButton src={assets.generateImage(index + 1)} name={name} index={index} />
+          <FavoriteButton photo={photo} name={name} index={index} />
         </div>
         <hr />
         <Card.Body>
@@ -36,14 +35,10 @@ const Item = ({ name, index, src }) => {
   );
 };
 
-Item.defaultProps = {
-  src: null,
-};
-
 Item.propTypes = {
-  src: PropTypes.string,
   name: PropTypes.string.isRequired,
   index: PropTypes.number.isRequired,
+  photo: PropTypes.string.isRequired,
 };
 
 export default memo(Item);
