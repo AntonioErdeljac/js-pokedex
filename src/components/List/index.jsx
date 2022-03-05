@@ -40,7 +40,7 @@ const List = ({ items, onScroll, isLoading, hasLoaded }) => {
       <Container className={cx('pd-list')}>
         <Row className="mt-3">
           {items.map((item, index) => (
-            <Item src={item.src} key={item.name} name={item.name} index={index} />
+            <Item key={item.name} photo={item.photo} name={item.name} index={index} />
           ))}
           {isLoading && !isEmpty(items) ? (
             <Container>

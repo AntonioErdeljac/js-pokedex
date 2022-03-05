@@ -1,4 +1,5 @@
 import { actions } from '../../constants';
+import { assets } from '../../utils';
 
 const initialState = {
   data: {},
@@ -19,7 +20,10 @@ const actionFactory = {
     ...state,
     isLoading: false,
     hasFailedToLoad: false,
-    data: result.data,
+    data: {
+      ...result.data,
+      photo: assets.generateImage(result.data.id),
+    },
     hasLoaded: true,
   }),
   [actions.ITEM_GET_FAILURE]: (state) => ({

@@ -7,8 +7,8 @@ import styles from './styles.scss';
 
 const cx = cn.bind(styles);
 
-const FavoriteButton = ({ src, name, index }) => {
-  const { toggleFavorite, isFavorite } = useFavoriteButton({ name, index, src });
+const FavoriteButton = ({ photo, name, index }) => {
+  const { toggleFavorite, isFavorite } = useFavoriteButton({ name, index, photo });
 
   return (
     <button
@@ -26,12 +26,8 @@ const FavoriteButton = ({ src, name, index }) => {
   );
 };
 
-FavoriteButton.defaultProps = {
-  src: null,
-};
-
 FavoriteButton.propTypes = {
-  src: PropTypes.string,
+  photo: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   index: PropTypes.number.isRequired,
 };
