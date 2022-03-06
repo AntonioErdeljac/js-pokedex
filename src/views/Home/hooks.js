@@ -3,7 +3,7 @@ import { useDispatch, useSelector, shallowEqual } from 'react-redux';
 
 import selectors from './selectors';
 
-import { getItems, resetItems } from '../../store/actions/items';
+import { getItems, resetItems, setSearch } from '../../store/actions/items';
 
 export const useList = () => {
   const dispatch = useDispatch();
@@ -13,6 +13,7 @@ export const useList = () => {
   const isLoading = useSelector(selectors.isLoading, shallowEqual);
   const nextQuery = useSelector(selectors.nextQuery, shallowEqual);
   const hasLoaded = useSelector(selectors.hasLoaded, shallowEqual);
+  const searchValue = useSelector(selectors.searchValue, shallowEqual);
 
   useEffect(() => {
     dispatch(getItems());
@@ -28,12 +29,19 @@ export const useList = () => {
 
   const onScroll = useCallback(
     (isVisible) => {
-      if (isVisible && !isLoading && hasMore) {
+      if (isVisible && !isLoading && hasMore && !searchValue) {
         loadMore();
       }
     },
-    [isLoading, loadMore, hasMore],
+    [isLoading, loadMore, hasMore, searchValue],
   );
 
-  return { items, isLoading, onScroll, favorites, hasLoaded };
+  const onSearch = useCallback(
+    (event) => {
+      dispatch(setSearch(event.target.value));
+    },
+    [dispatch],
+  );
+
+  return { items, isLoading, onScroll, favorites, hasLoaded, searchValue, onSearch };
 };

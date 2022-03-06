@@ -1,15 +1,7 @@
+import { filters } from '../../../utils';
+
 const selectors = {
-  favorites: (state) => {
-    const result = state.favorites.data;
-
-    if (!state.favorites.search) {
-      return result;
-    }
-
-    return result.filter((item) =>
-      item.name.toLowerCase().match(state.favorites.search.toLowerCase()),
-    );
-  },
+  favorites: (state) => filters.search(state.favorites.data, state.favorites.search),
   searchValue: (state) => state.favorites.search,
 };
 

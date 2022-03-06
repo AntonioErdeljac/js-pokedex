@@ -7,11 +7,12 @@ export default keyMirror({
   ITEMS_GET_SUCCESS: null,
   ITEMS_GET_FAILURE: null,
   ITEMS_RESET: null,
+  ITEMS_SET: null,
+  ITEMS_SEARCH: null,
 
   ITEM_GET_REQUEST: null,
   ITEM_GET_SUCCESS: null,
   ITEM_GET_FAILURE: null,
-  ITEMS_SET: null,
   ITEM_RESET: null,
 
   FAVORITES_SET: null,

@@ -17,6 +17,7 @@ const initialState = {
   hasFailedToLoad: false,
   hasLoaded: false,
   nextQuery: null,
+  search: '',
 };
 
 const actionFactory = {
@@ -60,6 +61,10 @@ const actionFactory = {
     isLoading: false,
     hasFailedToLoad: true,
     hasLoaded: false,
+  }),
+  [actions.ITEMS_SEARCH]: (state, { value }) => ({
+    ...state,
+    search: value,
   }),
 };
 

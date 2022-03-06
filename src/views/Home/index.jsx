@@ -5,9 +5,18 @@ import { useList } from './hooks';
 import { List } from '../../components';
 
 const Home = () => {
-  const { items, isLoading, onScroll, hasLoaded } = useList();
+  const { items, isLoading, onScroll, hasLoaded, onSearch, searchValue } = useList();
 
-  return <List hasLoaded={hasLoaded} isLoading={isLoading} items={items} onScroll={onScroll} />;
+  return (
+    <List
+      onSearch={onSearch}
+      searchValue={searchValue}
+      hasLoaded={hasLoaded}
+      isLoading={isLoading}
+      items={items}
+      onScroll={onScroll}
+    />
+  );
 };
 
 export default Home;

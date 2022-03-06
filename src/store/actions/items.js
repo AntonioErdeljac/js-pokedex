@@ -17,3 +17,8 @@ export const setItems = (data) => ({
   type: actions.ITEMS_SET,
   data,
 });
+
+export const setSearch = (value) => ({
+  type: actions.ITEMS_SEARCH,
+  value,
+});
