@@ -16,4 +16,5 @@ export default keyMirror({
 
   FAVORITES_SET: null,
   FAVORITES_RESET: null,
+  FAVORITES_SEARCH: null,
 });

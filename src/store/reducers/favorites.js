@@ -4,10 +4,15 @@ import { actions } from '../../constants';
 
 const initialState = {
   data: cache.loadFavorites(),
+  search: '',
 };
 
 const actionFactory = {
   [actions.FAVORITES_RESET]: () => ({ ...initialState }),
+  [actions.FAVORITES_SEARCH]: (state, { value }) => ({
+    ...state,
+    search: value,
+  }),
   [actions.FAVORITES_SET]: (state, { data }) => {
     cache.saveFavorites(data);
     return {
