@@ -5,7 +5,16 @@ import { useList } from './hooks';
 import { List } from '../../components';
 
 const Home = () => {
-  const { items, isLoading, onScroll, hasLoaded, onSearch, searchValue } = useList();
+  const {
+    items,
+    isLoading,
+    onScroll,
+    hasLoaded,
+    onSearch,
+    searchValue,
+    onSort,
+    sortValue,
+  } = useList();
 
   return (
     <List
@@ -15,6 +24,8 @@ const Home = () => {
       isLoading={isLoading}
       items={items}
       onScroll={onScroll}
+      onSort={onSort}
+      sortValue={sortValue}
     />
   );
 };

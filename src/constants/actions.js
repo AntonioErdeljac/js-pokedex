@@ -9,6 +9,7 @@ export default keyMirror({
   ITEMS_RESET: null,
   ITEMS_SET: null,
   ITEMS_SEARCH: null,
+  ITEMS_SORT: null,
 
   ITEM_GET_REQUEST: null,
   ITEM_GET_SUCCESS: null,
@@ -18,4 +19,5 @@ export default keyMirror({
   FAVORITES_SET: null,
   FAVORITES_RESET: null,
   FAVORITES_SEARCH: null,
+  FAVORITES_SORT: null,
 });

@@ -7,7 +7,17 @@
     margin: map-get($map: $spacers, $key: 5) * 2 0px !important;
   }
 
-  &__input {
+  &__filters {
     margin-bottom: map-get($map: $spacers, $key: 5);
+
+    @media only screen and (max-width: map-get($map: $grid-breakpoints, $key: lg)) {
+      margin-bottom: map-get($map: $spacers, $key: 3);
+    }
+  }
+
+  &__sort {
+    @media only screen and (max-width: map-get($map: $grid-breakpoints, $key: lg)) {
+      margin-top: map-get($map: $spacers, $key: 3);
+    }
   }
 }

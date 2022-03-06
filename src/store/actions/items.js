@@ -22,3 +22,8 @@ export const setSearch = (value) => ({
   type: actions.ITEMS_SEARCH,
   value,
 });
+
+export const setSort = (value) => ({
+  type: actions.ITEMS_SORT,
+  value,
+});

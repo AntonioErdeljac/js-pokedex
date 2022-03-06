@@ -18,6 +18,7 @@ const initialState = {
   hasLoaded: false,
   nextQuery: null,
   search: '',
+  sort: null,
 };
 
 const actionFactory = {
@@ -65,6 +66,10 @@ const actionFactory = {
   [actions.ITEMS_SEARCH]: (state, { value }) => ({
     ...state,
     search: value,
+  }),
+  [actions.ITEMS_SORT]: (state, { value }) => ({
+    ...state,
+    sort: value,
   }),
 };
 

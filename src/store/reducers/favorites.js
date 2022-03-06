@@ -5,6 +5,7 @@ import { actions } from '../../constants';
 const initialState = {
   data: cache.loadFavorites(),
   search: '',
+  sort: null,
 };
 
 const actionFactory = {
@@ -12,6 +13,10 @@ const actionFactory = {
   [actions.FAVORITES_SEARCH]: (state, { value }) => ({
     ...state,
     search: value,
+  }),
+  [actions.FAVORITES_SORT]: (state, { value }) => ({
+    ...state,
+    sort: value,
   }),
   [actions.FAVORITES_SET]: (state, { data }) => {
     cache.saveFavorites(data);

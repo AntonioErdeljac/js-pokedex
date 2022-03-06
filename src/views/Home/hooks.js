@@ -3,7 +3,7 @@ import { useDispatch, useSelector, shallowEqual } from 'react-redux';
 
 import selectors from './selectors';
 
-import { getItems, resetItems, setSearch } from '../../store/actions/items';
+import { getItems, resetItems, setSearch, setSort } from '../../store/actions/items';
 
 export const useList = () => {
   const dispatch = useDispatch();
@@ -14,6 +14,7 @@ export const useList = () => {
   const nextQuery = useSelector(selectors.nextQuery, shallowEqual);
   const hasLoaded = useSelector(selectors.hasLoaded, shallowEqual);
   const searchValue = useSelector(selectors.searchValue, shallowEqual);
+  const sortValue = useSelector(selectors.sortValue, shallowEqual);
 
   useEffect(() => {
     dispatch(getItems());
@@ -29,11 +30,11 @@ export const useList = () => {
 
   const onScroll = useCallback(
     (isVisible) => {
-      if (isVisible && !isLoading && hasMore && !searchValue) {
+      if (isVisible && !isLoading && hasMore && !searchValue && !sortValue) {
         loadMore();
       }
     },
-    [isLoading, loadMore, hasMore, searchValue],
+    [isLoading, loadMore, hasMore, searchValue, sortValue],
   );
 
   const onSearch = useCallback(
@@ -43,5 +44,21 @@ export const useList = () => {
     [dispatch],
   );
 
-  return { items, isLoading, onScroll, favorites, hasLoaded, searchValue, onSearch };
+  const onSort = useCallback(
+    (event) => {
+      dispatch(setSort(event));
+    },
+    [dispatch],
+  );
+  return {
+    items,
+    isLoading,
+    onScroll,
+    favorites,
+    hasLoaded,
+    searchValue,
+    onSearch,
+    sortValue,
+    onSort,
+  };
 };
