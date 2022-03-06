@@ -7,6 +7,80 @@ exports[`List renders correctly according to snapshot 1`] = `
     fluid={false}
   >
     <Row
+      className="pd-list__filters"
+      noGutters={false}
+    >
+      <Col
+        lg={10}
+        xs={12}
+      >
+        <FormControl
+          onChange={null}
+          placeholder="Search"
+          value=""
+        />
+      </Col>
+      <Col
+        lg={2}
+        xs={12}
+      >
+        <Dropdown
+          navbar={false}
+          onSelect={null}
+        >
+          <DropdownToggle
+            className="pd-list__sort w-100"
+            variant="info"
+          >
+            Sort By
+          </DropdownToggle>
+          <DropdownMenu
+            align="left"
+            alignRight={false}
+            className="w-100"
+            flip={true}
+          >
+            <DropdownItem
+              as={
+                Object {
+                  "$$typeof": Symbol(react.forward_ref),
+                  "render": [Function],
+                }
+              }
+              disabled={false}
+              eventKey={null}
+            >
+              Default
+            </DropdownItem>
+            <DropdownItem
+              as={
+                Object {
+                  "$$typeof": Symbol(react.forward_ref),
+                  "render": [Function],
+                }
+              }
+              disabled={false}
+              eventKey="asc"
+            >
+              Name (A-Z)
+            </DropdownItem>
+            <DropdownItem
+              as={
+                Object {
+                  "$$typeof": Symbol(react.forward_ref),
+                  "render": [Function],
+                }
+              }
+              disabled={false}
+              eventKey="desc"
+            >
+              Name (Z-A)
+            </DropdownItem>
+          </DropdownMenu>
+        </Dropdown>
+      </Col>
+    </Row>
+    <Row
       className="mt-3"
       noGutters={false}
     >

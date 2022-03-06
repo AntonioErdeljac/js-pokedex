@@ -17,3 +17,13 @@ export const setItems = (data) => ({
   type: actions.ITEMS_SET,
   data,
 });
+
+export const setSearch = (value) => ({
+  type: actions.ITEMS_SEARCH,
+  value,
+});
+
+export const setSort = (value) => ({
+  type: actions.ITEMS_SORT,
+  value,
+});

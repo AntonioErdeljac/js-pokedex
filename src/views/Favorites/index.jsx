@@ -5,9 +5,18 @@ import { useFavorites } from './hooks';
 import { List } from '../../components';
 
 const Favorites = () => {
-  const { items } = useFavorites();
+  const { items, onSearch, searchValue, onSort, sortValue } = useFavorites();
 
-  return <List hasLoaded items={items} />;
+  return (
+    <List
+      onSort={onSort}
+      searchValue={searchValue}
+      sortValue={sortValue}
+      onSearch={onSearch}
+      hasLoaded
+      items={items}
+    />
+  );
 };
 
 export default memo(Favorites);

@@ -8,3 +8,13 @@ export const setFavorites = (data) => ({
   type: actions.FAVORITES_SET,
   data,
 });
+
+export const setSearch = (value) => ({
+  type: actions.FAVORITES_SEARCH,
+  value,
+});
+
+export const setSort = (value) => ({
+  type: actions.FAVORITES_SORT,
+  value,
+});
