@@ -6,9 +6,9 @@ import { useNavigate, generatePath } from 'react-router-dom';
 
 import styles from './styles.scss';
 
-import FavoriteButton from '../../../FavoriteButton';
+import FavoriteButton from '../FavoriteButton';
 
-import { paths } from '../../../../constants';
+import { paths } from '../../constants';
 
 const cx = cn.bind(styles);
 

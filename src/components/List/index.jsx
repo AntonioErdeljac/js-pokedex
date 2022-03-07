@@ -7,8 +7,10 @@ import { isEmpty } from 'lodash';
 
 import empty from './images/empty.png';
 import styles from './styles.scss';
-import { Item, BottomPixel, Loader } from './components';
 
+import Item from '../Item';
+import BottomPixel from '../BottomPixel';
+import Loader from '../Loader';
 import FadeIn from '../FadeIn';
 import Info from '../Info';
 
