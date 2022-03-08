@@ -4,3 +4,6 @@ export { default as List } from './List';
 export { default as Footer } from './Footer';
 export { default as FadeIn } from './FadeIn';
 export { default as Info } from './Info';
+export { default as BottomPixel } from './BottomPixel';
+export { default as Item } from './Item';
+export { default as Loader } from './Loader';

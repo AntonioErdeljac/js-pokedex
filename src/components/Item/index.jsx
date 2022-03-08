@@ -2,30 +2,29 @@ import cn from 'classnames/bind';
 import PropTypes from 'prop-types';
 import React, { memo, useCallback } from 'react';
 import { Col, Card } from 'react-bootstrap';
-import { useHistory, generatePath } from 'react-router-dom';
+import { useNavigate, generatePath } from 'react-router-dom';
 
 import styles from './styles.scss';
 
-import FavoriteButton from '../../../FavoriteButton';
+import FavoriteButton from '../FavoriteButton';
 
-import { assets } from '../../../../utils';
-import { paths } from '../../../../constants';
+import { paths } from '../../constants';
 
 const cx = cn.bind(styles);
 
-const Item = ({ name, index, src }) => {
-  const history = useHistory();
+const Item = ({ name, index, photo }) => {
+  const navigate = useNavigate();
 
   const onClick = useCallback(() => {
-    history.push(generatePath(paths.client.PROFILE_ID, { id: name }));
-  }, [history, name]);
+    navigate(generatePath(paths.client.PROFILE_ID, { id: name }));
+  }, [navigate, name]);
 
   return (
     <Col onClick={onClick} className={cx('pd-card')} key={name} xl={4} lg={6} md={12}>
       <Card className="mb-4 shadow-sm">
-        <Card.Img className="p-5" variant="top" src={src || assets.generateImage(index + 1)} />
+        <Card.Img className="p-5" variant="top" src={photo} />
         <div className={cx('pd-favorite__wrapper')}>
-          <FavoriteButton src={assets.generateImage(index + 1)} name={name} index={index} />
+          <FavoriteButton photo={photo} name={name} index={index} />
         </div>
         <hr />
         <Card.Body>
@@ -36,14 +35,10 @@ const Item = ({ name, index, src }) => {
   );
 };
 
-Item.defaultProps = {
-  src: null,
-};
-
 Item.propTypes = {
-  src: PropTypes.string,
   name: PropTypes.string.isRequired,
   index: PropTypes.number.isRequired,
+  photo: PropTypes.string.isRequired,
 };
 
 export default memo(Item);

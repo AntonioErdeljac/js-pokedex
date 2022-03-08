@@ -1,6 +1,7 @@
 import qs from 'query-string';
 
 import { actions } from '../../constants';
+import { assets } from '../../utils';
 
 const getQuery = (url) => {
   if (url) {
@@ -16,6 +17,8 @@ const initialState = {
   hasFailedToLoad: false,
   hasLoaded: false,
   nextQuery: null,
+  search: '',
+  sort: null,
 };
 
 const actionFactory = {
@@ -35,7 +38,13 @@ const actionFactory = {
     hasLoaded: false,
   }),
   [actions.ITEMS_GET_SUCCESS]: (state, { result }) => {
-    const data = [...state.data, ...result.data.results];
+    const combinedData = [...state.data, ...result.data.results];
+    const enhancedData = combinedData.map((item, index) => ({
+      ...item,
+      photo: assets.generateImage(index + 1),
+    }));
+
+    const data = enhancedData;
     const nextQuery = getQuery(result.data.next);
 
     return {
@@ -53,6 +62,14 @@ const actionFactory = {
     isLoading: false,
     hasFailedToLoad: true,
     hasLoaded: false,
+  }),
+  [actions.ITEMS_SEARCH]: (state, { value }) => ({
+    ...state,
+    search: value,
+  }),
+  [actions.ITEMS_SORT]: (state, { value }) => ({
+    ...state,
+    sort: value,
   }),
 };
 
