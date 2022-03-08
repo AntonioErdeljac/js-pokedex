@@ -53,6 +53,8 @@ module.exports = {
     }),
   ],
   devServer: {
+    contentBase: path.join(__dirname, 'public'),
+    watchContentBase: true,
     open: true,
     publicPath: '/',
     historyApiFallback: true,
